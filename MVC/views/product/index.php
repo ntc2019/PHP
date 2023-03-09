@@ -8,7 +8,7 @@
         ?>
         <tr>
             <td><?=$product['id'] ?></td>
-            <td><?=$product['name'] ?></td>
+            <td><a href="<?= URL ?>/product/detail/<?= $product['id']-1 ?>"><?=$product['name'] ?></a></td>
         </tr>
      <?php   
     } ?>

@@ -21,14 +21,15 @@
             echo 'Update';
         }
 
-        public function add()
+        public function add($id)
         {
             echo 'Add';
         }
 
-        public function detail()
+        public function detail($id)
         {
-            echo 'detail';
+            $product = $this->productModel->get($id);
+            $this->loadView('./views/product/detail.php',$product);
         }
     }
 

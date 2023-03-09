@@ -2,9 +2,11 @@
 
     class ProductModel
     {
-        public function getAll()
+        private $products;
+
+        public function __construct()
         {
-            $products = [
+            $this->products = [
                 [
                     'id' => '1',
                     'name' => 'Xe hoi'
@@ -18,7 +20,16 @@
                     'name' => 'Xe dap'
                 ]
             ];
-            return $products;
+            
+        }
+        public function getAll()
+        {
+            return $this->products;
+        }
+
+        public function get($id)
+        {
+            return $this->products[$id];
         }
     }
 ?>
