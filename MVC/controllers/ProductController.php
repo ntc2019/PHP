@@ -21,9 +21,14 @@
             echo 'Update';
         }
 
-        public function add($id)
+        public function add()
         {
-            echo 'Add';
+            $this->loadView('./views/product/add.php');
+        }
+
+        public function delete()
+        {
+            $this->productModel->delete($id);
         }
 
         public function detail($id)
@@ -32,6 +37,4 @@
             $this->loadView('./views/product/detail.php',$product);
         }
     }
-
-
 ?>

@@ -1,35 +1,12 @@
 <?php 
 
-    class ProductModel
-    {
-        private $products;
+    class ProductModel extends BaseModel
+    {   
+        public $tableName = 'products';
 
-        public function __construct()
+        public function getAll($select = ['*'])
         {
-            $this->products = [
-                [
-                    'id' => '1',
-                    'name' => 'Xe hoi'
-                ],
-                [
-                    'id' => '2',
-                    'name' => 'Xe may'
-                ],
-                [
-                    'id' => '3',
-                    'name' => 'Xe dap'
-                ]
-            ];
-            
-        }
-        public function getAll()
-        {
-            return $this->products;
-        }
-
-        public function get($id)
-        {
-            return $this->products[$id];
+            return parent::getAll();
         }
     }
 ?>

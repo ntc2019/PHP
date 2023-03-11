@@ -1,3 +1,3 @@
 <?php 
-    define('URL','http://localhost/Cuong/MVC');
+    define('URL','http://localhost/Cuong/PHP/MVC');
 ?>

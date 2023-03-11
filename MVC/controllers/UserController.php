@@ -25,9 +25,10 @@
             echo 'Add';
         }
 
-        public function detail()
+        public function detail($id)
         {
-            echo 'detail';
+            $user = $this->userModel->get($id);
+            $this->loadView('./views/user/detail.php',$user);
         }
     }
 ?>
