@@ -4,7 +4,8 @@
         public $tableName;
         public $columnNames;
         public function query($sql)
-        {
+        {   
+            $this->connect();
             return mysqli_query($this->connect,$sql);
         }
         public function queryGet($sql)
@@ -32,7 +33,9 @@
         {   
             $selectList = implode(',',$select);
             $sql = "SELECT $selectList FROM $this->tableName";
-            return $this->queryGet($sql);
+            $result = $this->queryGet($sql);
+            $result = array_reverse($result);
+            return $result;
         }
 
         public function get($id)
@@ -46,12 +49,25 @@
             $sql = "DELETE FROM $this->tableName WHERE id = $id";
             $this->query($sql);
         }
+        
+        public function store($products)
+        {   $values = array_map(function ($x) {
+                return "'".$x."'";
+                }, array_values($products));
+            $columns = implode(',',array_keys($products));
+            $values = implode(',',$values);
+            $sql = "INSERT INTO $this->tableName ($columns) VALUES ($values)";
+            $this->query($sql);
+        }
 
-        public function add($values)
-        {   
-            $columnsNameList = implode($this->columnNames);
-            $valuesList = implode($values);
-            $sql = "INSERT INTO $this->tableName ($columnsNameList) VALUES ($valuesList)";
+        public function update($product,$id)
+        {
+            $info = array_map(function ($key,$value) {
+                return sprintf("%s = '%s'",$key,$value);
+                }, array_keys($product),$product);
+            $info = implode(',',$info);
+            $sql = "UPDATE $this->tableName SET $info WHERE id = '$id'";
+            $this->query($sql);
         }
     }
 

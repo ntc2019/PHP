@@ -1,3 +1,10 @@
-<h1><?= 'Ten:'.$datas['name']?></h1>
-<h1><?= 'Gia:'.$datas['price']?></h1>
-<h1><?= 'Hinh anh:'.$datas['imageURL']?></h1>
+<h1>Chi tiet san pham</h1>
+<form method="POST">
+    <label for="name">Ten san pham:</label><br/>
+    <input type="text" name="name" id="name" value=<?="'".$datas['name']."'" ?>><br/>
+    <label for="price">Gia:</label><br/>
+    <input type="text" name="price" id="price" value=<?=$datas['price'] ?>><br/>
+    <label for="ImageURL">Link hinh anh:</label><br/>
+    <input type="text" name="imageURL" id="imageURL" value=<?="'".$datas['imageURL']."'" ?>><br/><br/>
+    <input type="submit" value="Edit" name="editProduct">
+</form>

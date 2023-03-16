@@ -1,3 +1,4 @@
+<h1>Them san pham</h1>
 <form method="POST">
     <label for="name">Ten san pham:</label><br/>
     <input type="text" name="name" id="name"><br/>
@@ -5,5 +6,5 @@
     <input type="text" name="price" id="price"><br/>
     <label for="ImageURL">Link hinh anh:</label><br/>
     <input type="text" name="imageURL" id="imageURL"><br/><br/>
-    <input type="submit" value="Them">
+    <input type="submit" value="Them" name="addProduct">
 </form>
